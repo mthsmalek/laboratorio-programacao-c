@@ -1,74 +1,89 @@
 #include <stdio.h>
 
-void exibirMenu(void) {
-    printf("===== CALCULADORA =====\n\n");
-    printf("1 - Somar\n");
-    printf("2 - Subtrair\n");
-    printf("3 - Multiplicar\n");
-    printf("4 - Dividir\n");
-    printf("0 - Sair\n\n");
-}
+    void exibirMenu()  {
+        printf("\n====CALCULADORA====\n");
+        printf("1 - Soma\n");
+        printf("2 - Subtrair\n");
+        printf("3 - Multiplicar\n");
+        printf("4 - Dividir\n");
+        printf("0 - Sair\n");
+        
+        printf("Escolha uma opção: ");
+    }
+    
+    float somar(float n1, float n2) {
+        return n1 + n2;
+    }
+    float subtrair(float n1, float n2) {
+        return n1 - n2;
+    }
+    float multiplicar(float n1, float n2) {
+        return n1 * n2;
+    }
+    float dividir(float n1, float n2) {
+        return n1 / n2;
+    }
 
-float somar(float a, float b) {
-    return a + b;
-}
-
-float subtrair(float a, float b) {
-    return a - b;
-}
-
-float multiplicar(float a, float b) {
-    return a * b;
-}
-
-float dividir(float a, float b) {
-    return a / b;
-}
-
-int main(void) {
+int main () {
     int opcao;
-    float numero1, numero2, resultado;
-
+    float n1, n2, resultado;
+    
     do {
         exibirMenu();
-        printf("Escolha uma opcao: ");
         scanf("%d", &opcao);
-
-        if (opcao >= 1 && opcao <= 4) {
-            printf("\nPrimeiro numero: ");
-            scanf("%f", &numero1);
-            printf("Segundo numero: ");
-            scanf("%f", &numero2);
-
-            switch (opcao) {
-                case 1:
-                    resultado = somar(numero1, numero2);
-                    printf("\nResultado: %.2f\n\n", resultado);
-                    break;
-                case 2:
-                    resultado = subtrair(numero1, numero2);
-                    printf("\nResultado: %.2f\n\n", resultado);
-                    break;
-                case 3:
-                    resultado = multiplicar(numero1, numero2);
-                    printf("\nResultado: %.2f\n\n", resultado);
-                    break;
-                case 4:
-                    if (numero2 != 0) {
-                        resultado = dividir(numero1, numero2);
-                        printf("\nResultado: %.2f\n\n", resultado);
-                    } else {
-                        printf("\nErro: nao e possivel dividir por zero.\n\n");
-                    }
-                    break;
-            }
-        } else if (opcao != 0) {
-            printf("\nOpcao invalida!\n\n");
+        
+        if(opcao >= 1 && opcao <= 4) {
+            printf("Digite o primeiro numero: ");
+            scanf("%f", &n1);
+            
+            printf("Digite o segundo numero: ");
+            scanf("%f", &n2);
         }
-
-    } while (opcao != 0);
-
-    printf("Encerrando a calculadora.\n");
-
-    return 0;
-}
+        
+        switch(opcao) {
+            case 1: 
+            resultado = somar (n1, n2);
+            printf("Resultado %.2f\n", resultado);
+            break;
+            
+            case 2: 
+            resultado = subtrair(n1, n2);
+                printf("Resultado: %.2f\n", resultado);
+                break;
+                
+            case 3:
+                resultado = multiplicar(n1, n2);
+                printf("Resultado: %.2f\n", resultado);
+                break;
+                
+            case 4:
+            if (n2 == 0) {
+                 printf("Erro: divisao por zero!\n");
+            } else {
+                resultado = dividir(n1, n2);
+                printf("Resultado: %.2f\n", resultado);
+            }
+                break;
+                
+            case 0:
+                printf("Encerrando calculadora...\n");
+                break;
+                
+            default:
+                printf("Opção invalida.\n");
+            }  
+            
+        } while (opcao != 0);
+            
+            return 0;
+        
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+    
